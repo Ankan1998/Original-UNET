@@ -14,18 +14,19 @@ class DownConvolution(nn.Module):
         self.dropout = nn.Dropout2d(0.2)
 
     def forward(self, x):
+        x = self.maxpool(x)
         x = self.conv1(x)
         x = self.Relu(x)
         x = self.conv2(x)
         x = self.Relu(x)
         x = self.dropout(x)
-        x = self.maxpool(x)
+
 
         return x
 
 if __name__=="__main__":
     down_conv = DownConvolution(64,128)
-    inp = torch.rand(4,64,284,284)
+    inp = torch.rand(4,64,568,568)
     out = down_conv(inp)
     print(out.size())
 
