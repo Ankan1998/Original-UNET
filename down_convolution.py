@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-# 1. 2 convolution[(3x3),Relu] --> max-pooling
+# 1. max-pooling --> 2 convolution[(3x3),Relu] 
 
 
 class DownConvolution(nn.Module):
